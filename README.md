@@ -12,7 +12,7 @@
 
 # User Stories
 
-## As a small business owner
+## 1 - As a small business owner
 
 - I want to input a topic and select a content category
 - So that the app can generate a professional draft for me using an API
@@ -27,7 +27,7 @@
 
 - A loading indicator appears on the screen while the API request is in progress.
 
-## As a user reviewing and editing content
+## 2 - As a user reviewing and editing content
 
 - I want to edit the generated text manually and see a quality score
 - So that I can ensure the content meets my standards
@@ -42,7 +42,7 @@
 
 - All changes to the text are tracked in the app's local state
 
-## As a user managing the content library
+## 3 - As a user managing the content library
 
 - I want to save my drafts to a list and delete the ones I no longer need
 - So that I can manage my content production pipeline
