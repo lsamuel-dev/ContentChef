@@ -64,3 +64,22 @@
 - ![State 2: The Kitchen Console (Generation Phase)](Assets/wireframe-state-2.png)
 
 - ![State 3: The Content Pantry (Storage Phase)](Assets/wireframe-state-3.png)
+
+# Technologies Used
+
+- React (v18+)
+- Vite
+- JavaScript (ES6+)
+- Hooks (useState, useEffect)
+- CSS3
+- Git & GitHub
+
+# Ideas for Improvement
+
+1. OpenAI/Gemini API Integration - Actually connect the "Chef" to an AI to generate the social media copy.
+
+2. Drag-and-Drop Library - Allow users to reorder their "cooked" content in their saved library.
+
+3. Export to Social - Add a "Share" button that formats the content specifically for Facebook, Instagram, X, or LinkedIn.
+
+4. Dark Mode: A "Night Kitchen" mode for late-night content creation.
