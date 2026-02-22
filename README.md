@@ -57,4 +57,10 @@
 
 - The user can click a "Clear All" button to empty the entire library at once.
 
+# Wireframe Diagrams
 
+- ![State 1: The Menu (Input Phase)](Assets/wireframe-state-1.png)
+
+- ![State 2: The Kitchen Console (Generation Phase)](Assets/wireframe-state-2.png)
+
+- ![State 3: The Content Pantry (Storage Phase)](Assets/wireframe-state-3.png)
