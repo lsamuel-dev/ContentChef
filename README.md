@@ -67,7 +67,7 @@
 
 # Technologies Used
 
-- React (v18+)
+- React (v19.2)
 - Vite
 - JavaScript (ES6+)
 - Hooks (useState, useEffect)
