@@ -65,6 +65,13 @@ App State
  - HTML5 & CSS3: Structural markup and custom styling (minimum 10 custom rules).
  - Git & GitHub: Version control and repository management.
 
+### Installation Instructions
+
+1. **Clone the repository:** `git clone https://github.com/lsamuel-dev/ContentChef.git`
+2. **Install dependencies:** `npm install`
+3. **Run the development server:** `npm run dev`
+4. **View in Browser:** Open `http://localhost:5173` 
+
 ### Ideas for Future Improvement
 
 1. OpenAI/Gemini API Integration: Automate the "Chef" to generate real AI text based on user topics.
