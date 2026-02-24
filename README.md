@@ -10,6 +10,10 @@
 
 - ContentChef is a React-based task management application designed for business owners who need to streamline their social media production. The app allows users to "cook" (create) social media posts, track their quality, and manage them through a full CRUD (Create, Read, Update, Delete) cycle. This project demonstrates state management, controlled components, and conditional rendering.
 
+## View Online
+
+- (use GH pages link here)
+
 ### Functionality
 
 1. The Kitchen (Task View) - Create and manage social media "tasks."
