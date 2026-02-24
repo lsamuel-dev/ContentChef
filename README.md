@@ -1,85 +1,72 @@
-# Name
+# My Name
 
 - Lee Samuel
 
-# Project Name
+## Project Name
 
-- ContentChef
+- Project 3: ContentChef (Task Management Web App)
 
-# Project 3 - ContentChef
+### Project Description
 
-- ContentChef is a simple React tool for business owners who need better marketing content fast. Use AI to "cook up" social media posts, check their quality with real-time stats, and save your favorites to a library to edit or delete later.
+- ContentChef is a React-based task management application designed for business owners who need to streamline their social media production. The app allows users to "cook" (create) social media posts, track their quality, and manage them through a full CRUD (Create, Read, Update, Delete) cycle. This project demonstrates state management, controlled components, and conditional rendering.
 
-# User Stories
+### Functionality
 
-## 1 - As a small business owner
+1. The Kitchen (Task View) - Create and manage social media "tasks."
+2. CRUD Operations - Users can Create new drafts, Read through their library, Update existing text, and Delete unwanted posts.
+3. Progress Tracking - Mark posts as "Posted" (Complete) to trigger a visual strike-through effect.
+4. Status Filtering - Toggle views between "All," "Posted" (Complete), and "Drafts" (Incomplete).
+5. Contact Portal - A dedicated view featuring a controlled-component contact form.
 
-- I want to input a topic and select a content category
-- So that the app can generate a professional draft for me using an API
+### User Stories
 
-### Acceptance Criteria:
+1.  **As a small business owner**, 
+I want to input a topic and category,
+So that the app can generate a professional draft for me.
+2.  **As a content creator**, 
+I want to edit my drafts and see live word counts,
+So that I ensure they meet platform standards.
+3.  **As a manager**, 
+I want to filter my posts by "Posted" or "Draft" status,
+So that I can see what work is remaining.
+4.  **As a potential client**, 
+I want to fill out a contact form,
+So that I can ask questions about the service.
 
-- The user can enter a topic into a text input and select a category (e.g., "Sales" or "Education") from a dropdown menu.
+### Wireframe Diagrams
 
-- The "Generate" button remains disabled until the topic field is filled out.
+**State 1: The Menu (Input Phase)** `Assets/wireframe-state-1.png`
+**State 2: The Kitchen (Editor Phase)** `Assets/wireframe-state-2.png`
+**State 3: The Pantry (Library Phase)** `Assets/wireframe-state-3.png`
+**State 4: Contact View** (Displays form fields for First Name, Last Name, Email, and Comments).
 
-- Upon clicking "Generate," the app fetches text from an external API (like OpenAI) to populate the draft.
+### State Tree
 
-- A loading indicator appears on the screen while the API request is in progress.
+``` javascript
+App State
+├── currentView (string: 'todos' | 'contact')
+├── posts (array of objects)
+│   ├── id (number)
+│   ├── topic (string)
+│   ├── content (string)
+│   └── isCompleted (boolean)
+└── contactForm (object)
+    ├── firstName (string)
+    ├── lastName (string)
+    ├── email (string)
+    └── comments (string)
+```    
+   
+### Technologies Used
 
-## 2 - As a user reviewing and editing content
+ - React (v19.2): Core library for UI and state management.
+ - Vite: Build tool and local development server.
+ - JavaScript (ES6+): Functional logic, array methods, and state hooks.
+ - HTML5 & CSS3: Structural markup and custom styling (minimum 10 custom rules).
+ - Git & GitHub: Version control and repository management.
 
-- I want to edit the generated text manually and see a quality score
-- So that I can ensure the content meets my standards
+### Ideas for Future Improvement
 
-### Acceptance Criteria:
-
-- The generated text is displayed in an editable text area where the user can add or delete words.
-
-- The app displays a "Nutrition Label" box that shows a simple "Quality Score" or word count that updates as the user types.
-
-- The app displays a relevant image fetched from an API (like Unsplash) based on the user's chosen topic.
-
-- All changes to the text are tracked in the app's local state
-
-## 3 - As a user managing the content library
-
-- I want to save my drafts to a list and delete the ones I no longer need
-- So that I can manage my content production pipeline
-
-### Acceptance Criteria:
-
-- A "Save" button allows the user to add the current draft and its details to a "Saved Posts" list.
-
-- The "Library" view displays all saved posts, showing the title and the date they were created.
-
-- Each item in the library has a "Delete" button that removes it from the list and the view immediately.
-
-- The user can click a "Clear All" button to empty the entire library at once.
-
-# Wireframe Diagrams
-
-- ![State 1: The Menu (Input Phase)](Assets/wireframe-state-1.png)
-
-- ![State 2: The Kitchen Console (Generation Phase)](Assets/wireframe-state-2.png)
-
-- ![State 3: The Content Pantry (Storage Phase)](Assets/wireframe-state-3.png)
-
-# Technologies Used
-
-- React (v19.2)
-- Vite
-- JavaScript (ES6+)
-- Hooks (useState, useEffect)
-- CSS3
-- Git & GitHub
-
-# Ideas for Improvement
-
-1. OpenAI/Gemini API Integration - Actually connect the "Chef" to an AI to generate the social media copy.
-
-2. Drag-and-Drop Library - Allow users to reorder their "cooked" content in their saved library.
-
-3. Export to Social - Add a "Share" button that formats the content specifically for Facebook, Instagram, X, or LinkedIn.
-
-4. Dark Mode: A "Night Kitchen" mode for late-night content creation.
+1. OpenAI/Gemini API Integration: Automate the "Chef" to generate real AI text based on user topics.
+2. Image Integration: Automatically fetch relevant social media images using the Pexels or Unsplash API.
+3. Export to Social: Add a feature to download formatted posts for Instagram, LinkedIn, or X.
