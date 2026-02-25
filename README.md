@@ -27,15 +27,38 @@
 1.  **As a small business owner**, 
 I want to input a topic and category,
 So that the app can generate a professional draft for me.
+
+Acceptance Criteria:
+- Form contains a text input for the topic and a dropdown for the category.
+- Clicking the "Generate" button triggers the display of a pre-written draft.
+- The app remains stable and handles empty inputs gracefully.
+
 2.  **As a content creator**, 
 I want to edit my drafts and see live word counts,
 So that I ensure they meet platform standards.
+
+Acceptance Criteria:
+- A textarea allows for manual editing of the generated content.
+- A live word count updates on-screen as the user types.
+- Edited changes are preserved in the application's state.
+
 3.  **As a manager**, 
 I want to filter my posts by "Posted" or "Draft" status,
 So that I can see what work is remaining.
+
+Acceptance Criteria:
+- Each item in the library has a button to toggle its status to "Posted."
+- Completed items receive a visual strike-through or distinct style change.
+- Filter buttons (All, Drafts, Posted) correctly sort the displayed list.
+
 4.  **As a potential client**, 
 I want to fill out a contact form,
 So that I can ask questions about the service.
+
+Acceptance Criteria:
+- A dedicated view displays a form with First Name, Last Name, Email, and Comments.
+- The form utilizes controlled components (state-linked inputs).
+- Submitting the form provides user feedback (like an alert) and resets the fields.
 
 ### Wireframe Diagrams
 
