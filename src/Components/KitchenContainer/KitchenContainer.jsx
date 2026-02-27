@@ -1,7 +1,8 @@
 import './KitchenContainer.css';
-import DraftForm from '../DraftForm/DraftForm'; // Import it now!
+import DraftForm from '../DraftForm/DraftForm';
+import DraftEditor from '../DraftEditor/DraftEditor';
 
-function KitchenContainer({ onAddPost }) { // <--- Receive the prop from App.jsx
+function KitchenContainer({ onAddPost, activePost, onUpdatePost }) {
   return (
     <div className="kitchen-container">
       <header className="kitchen-header">
@@ -11,12 +12,14 @@ function KitchenContainer({ onAddPost }) { // <--- Receive the prop from App.jsx
       
       <section className="kitchen-workspace">
         <div className="recipe-input-area">
-            {/* Hand the function down to the form */}
             <DraftForm onAddPost={onAddPost} /> 
         </div>
         
         <div className="cooking-station">
-            {/* We will add DraftEditor and StatLabel next! */}
+            <DraftEditor 
+              activePost={activePost} 
+              setActivePost={onUpdatePost} 
+            />
         </div>
       </section>
     </div>
