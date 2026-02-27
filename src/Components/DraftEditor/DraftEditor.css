@@ -1,0 +1,39 @@
+.draft-editor {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border-top: 5px solid var(--chef-gold);
+}
+
+.draft-editor.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  color: #888;
+  font-style: italic;
+  border: 2px dashed #ccc;
+}
+
+.category-tag {
+  background: var(--chef-light);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--chef-gold);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.draft-editor textarea {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1.05rem;
+  resize: vertical;
+  box-sizing: border-box;
+}

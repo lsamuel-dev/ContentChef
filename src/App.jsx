@@ -1,35 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './KitchenContainer.css';
+import DraftForm from '../DraftForm/DraftForm'; // Import it now!
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function KitchenContainer({ onAddPost }) { // <--- Receive the prop from App.jsx
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="kitchen-container">
+      <header className="kitchen-header">
+        <h2>The Kitchen</h2>
+        <p>Prepare and season your social media drafts below.</p>
+      </header>
+      
+      <section className="kitchen-workspace">
+        <div className="recipe-input-area">
+            {/* Hand the function down to the form */}
+            <DraftForm onAddPost={onAddPost} /> 
+        </div>
+        
+        <div className="cooking-station">
+            {/* We will add DraftEditor and StatLabel next! */}
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default KitchenContainer;

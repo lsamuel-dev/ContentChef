@@ -1,15 +1,36 @@
 import './DraftEditor.css';
 
-function DraftEditor() {
+function DraftEditor({ activePost, setActivePost }) {
+  
+  // Handle manual typing in the editor
+  const handleContentChange = (e) => {
+    setActivePost({
+      ...activePost,
+      content: e.target.value
+    });
+  };
+
+  if (!activePost) {
+    return (
+      <div className="draft-editor empty">
+        <p>👨‍🍳 Select or generate a recipe to start seasoning!</p>
+      </div>
+    );
+  }
+
   return (
     <div className="draft-editor">
-      <h3>Kitchen Console</h3>
+      <h3>Editing: {activePost.topic}</h3>
+      <span className="category-tag">{activePost.category}</span>
+      
       <textarea 
-        placeholder="Your generated content will appear here for seasoning..."
+        value={activePost.content}
+        onChange={handleContentChange}
         rows="10"
       ></textarea>
-      <div className="editor-controls">
-        <button className="save-btn">Save to Pantry</button>
+      
+      <div className="editor-footer">
+        <p>Status: <strong>Draft</strong></p>
       </div>
     </div>
   );

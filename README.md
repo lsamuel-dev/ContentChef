@@ -84,6 +84,11 @@ App State
     └── comments (string)
 ```    
    
+### Component List
+
+1. Container Components: App, KitchenContainer, ContactContainer, LibraryManager.
+2. Presentational Components: NavBar, DraftForm, DraftEditor, ContentCard, ContactForm, FilterButtons, StatLabel.
+
 ### Technologies Used
 
  - React (v19.2): Core library for UI and state management.

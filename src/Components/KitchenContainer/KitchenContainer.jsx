@@ -1,24 +1,22 @@
 import './KitchenContainer.css';
-// Eventually, you will import the smaller pieces here:
-// import DraftForm from '../DraftForm/DraftForm';
-// import DraftEditor from '../DraftEditor/DraftEditor';
-// import StatLabel from '../StatLabel/StatLabel';
+import DraftForm from '../DraftForm/DraftForm'; // Import it now!
 
-function KitchenContainer() {
+function KitchenContainer({ onAddPost }) { // <--- Receive the prop from App.jsx
   return (
     <div className="kitchen-container">
-      <h2>The Kitchen</h2>
-      <p>This is where we cook up new social media content.</p>
+      <header className="kitchen-header">
+        <h2>The Kitchen</h2>
+        <p>Prepare and season your social media drafts below.</p>
+      </header>
       
       <section className="kitchen-workspace">
-        {/* This is where your Form, Editor, and Stats will live side-by-side */}
-        <div className="recipe-input">
-            {/* <DraftForm /> */}
+        <div className="recipe-input-area">
+            {/* Hand the function down to the form */}
+            <DraftForm onAddPost={onAddPost} /> 
         </div>
         
-        <div className="cooking-area">
-            {/* <DraftEditor /> */}
-            {/* <StatLabel /> */}
+        <div className="cooking-station">
+            {/* We will add DraftEditor and StatLabel next! */}
         </div>
       </section>
     </div>
