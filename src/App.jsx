@@ -1,26 +1,56 @@
-import './KitchenContainer.css';
-import DraftForm from '../DraftForm/DraftForm'; // Import it now!
+import { useState } from 'react';
+import './App.css';
 
-function KitchenContainer({ onAddPost }) { // <--- Receive the prop from App.jsx
+// Component Imports
+import NavBar from './Components/NavBar/NavBar';
+import KitchenContainer from './Components/KitchenContainer/KitchenContainer';
+import ContactContainer from './Components/ContactContainer/ContactContainer';
+
+function App() {
+  const [currentView, setCurrentView] = useState('kitchen');
+  const [posts, setPosts] = useState([]);
+  const [activePost, setActivePost] = useState(null);
+
+  const handleNavigate = (viewName) => {
+    setCurrentView(viewName);
+  };
+
+  const addPost = (newPostData) => {
+    const freshPost = {
+      ...newPostData,
+      id: Date.now(),
+      isCompleted: false
+    };
+    setPosts([...posts, freshPost]);
+    setActivePost(freshPost);
+  };
+
+  const updateActivePost = (updatedPost) => {
+    setActivePost(updatedPost);
+    const updatedPosts = posts.map(p => 
+      p.id === updatedPost.id ? updatedPost : p
+    );
+    setPosts(updatedPosts);
+  };
+
   return (
-    <div className="kitchen-container">
-      <header className="kitchen-header">
-        <h2>The Kitchen</h2>
-        <p>Prepare and season your social media drafts below.</p>
-      </header>
-      
-      <section className="kitchen-workspace">
-        <div className="recipe-input-area">
-            {/* Hand the function down to the form */}
-            <DraftForm onAddPost={onAddPost} /> 
-        </div>
-        
-        <div className="cooking-station">
-            {/* We will add DraftEditor and StatLabel next! */}
-        </div>
-      </section>
+    <div className="app-container">
+      <NavBar onNavigate={handleNavigate} />
+
+      <main className="main-content">
+        {currentView === 'kitchen' ? (
+          <KitchenContainer 
+            onAddPost={addPost} 
+            activePost={activePost}
+            onUpdatePost={updateActivePost}
+            posts={posts}
+          />
+        ) : (
+          <ContactContainer />
+        )}
+      </main>
     </div>
   );
 }
 
-export default KitchenContainer;
+export default App;

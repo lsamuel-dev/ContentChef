@@ -1,7 +1,7 @@
-import './KitchenContainer.css';
+import './KitchenContainer.css'; // This is correct because they ARE in the same folder
 import DraftForm from '../DraftForm/DraftForm';
 import DraftEditor from '../DraftEditor/DraftEditor';
-import StatLabel from '../StatLabel/StatLabel'; // Added this import
+import StatLabel from '../StatLabel/StatLabel';
 
 function KitchenContainer({ onAddPost, activePost, onUpdatePost }) {
   return (
