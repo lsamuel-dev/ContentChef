@@ -1,13 +1,23 @@
 import './StatLabel.css';
 
-function StatLabel() {
+function StatLabel({ activePost }) {
+  // If there's no post, word count is 0
+  const wordCount = activePost?.content 
+    ? activePost.content.trim().split(/\s+/).length 
+    : 0;
+
   return (
     <div className="stat-label">
-      <h4>Post Nutrition Info</h4>
-      <ul>
-        <li>Word Count: 0</li>
-        <li>Quality Score: Fresh</li>
-      </ul>
+      <div className="stat-item">
+        <span>Word Count:</span>
+        <strong>{wordCount}</strong>
+      </div>
+      <div className="stat-item">
+        <span>Quality:</span>
+        <strong style={{ color: wordCount > 20 ? 'green' : 'orange' }}>
+          {wordCount > 20 ? 'Fresh' : 'Raw'}
+        </strong>
+      </div>
     </div>
   );
 }

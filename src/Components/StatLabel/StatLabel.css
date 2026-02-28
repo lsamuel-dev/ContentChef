@@ -1,0 +1,29 @@
+.stat-label {
+  display: flex;
+  gap: 20px;
+  background: var(--chef-dark);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  margin-top: 15px;
+  justify-content: space-around;
+  font-family: 'Courier New', Courier, monospace; /* Makes it look like a receipt or ticket */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-item span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.stat-item strong {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}

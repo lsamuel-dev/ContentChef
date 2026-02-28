@@ -1,6 +1,7 @@
 import './KitchenContainer.css';
 import DraftForm from '../DraftForm/DraftForm';
 import DraftEditor from '../DraftEditor/DraftEditor';
+import StatLabel from '../StatLabel/StatLabel'; // Added this import
 
 function KitchenContainer({ onAddPost, activePost, onUpdatePost }) {
   return (
@@ -20,6 +21,8 @@ function KitchenContainer({ onAddPost, activePost, onUpdatePost }) {
               activePost={activePost} 
               setActivePost={onUpdatePost} 
             />
+            {/* The Label sits right under the editor */}
+            <StatLabel activePost={activePost} />
         </div>
       </section>
     </div>
