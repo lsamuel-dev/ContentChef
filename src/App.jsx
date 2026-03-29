@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './Components/NavBar/NavBar';
 import KitchenContainer from './Components/KitchenContainer/KitchenContainer';
 import ContactContainer from './Components/ContactContainer/ContactContainer';
+import PostLibrary from './Components/PostLibrary/PostLibrary';
 
 function App() {
   const [currentView, setCurrentView] = useState('kitchen');
@@ -39,15 +40,19 @@ function App() {
 
       <main className="main-content">
         {currentView === 'kitchen' ? (
-          <KitchenContainer 
-            onAddPost={addPost} 
-            activePost={activePost}
-            onUpdatePost={updateActivePost}
-            posts={posts}
-          />
-        ) : (
-          <ContactContainer />
-        )}
+  <>
+    <KitchenContainer 
+      onAddPost={addPost} 
+      activePost={activePost}
+      onUpdatePost={updateActivePost}
+      posts={posts}
+    />
+    {/* This is the key addition for this commit */}
+    <PostLibrary posts={posts} />
+  </>
+) : (
+  <ContactContainer />
+)}
       </main>
     </div>
   );

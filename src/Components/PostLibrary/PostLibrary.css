@@ -1,0 +1,48 @@
+.pantry-container {
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.section-divider {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin-bottom: 3rem;
+}
+
+.pantry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 2rem;
+}
+
+.post-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  border-bottom: 4px solid var(--chef-red);
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-tag {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--chef-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.empty-pantry {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  background: #eee;
+  border-radius: 10px;
+  color: #777;
+}
