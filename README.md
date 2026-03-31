@@ -1,111 +1,83 @@
-# My Name
+I apologize for the frustration. I see that the previous outputs were cutting off the last several sections. 
 
-- Lee Samuel
+Here is the **complete** and **unified** `README.md` content, containing every single section (including the Component List, Technologies, Installation, and Future Improvements) inside one single code block for you to copy and paste.
+
+```markdown
+# Lee Samuel
 
 ## Project Name
-
 - Project 3: ContentChef (Task Management Web App)
 
 ### Project Description
-
-- ContentChef is a React-based task management application designed for business owners who need to streamline their social media production. The app allows users to "cook" (create) social media posts, track their quality, and manage them through a full CRUD (Create, Read, Update, Delete) cycle. This project demonstrates state management, controlled components, and conditional rendering.
+- ContentChef is a React-based task management application I built for business owners who need to streamline their social media production. Instead of a standard to-do list, this app lets users "cook" (create) social media posts, track their quality in real-time, and manage them through a full CRUD (Create, Read, Update, Delete) cycle. I focused on using React state to handle navigation and data flow between the kitchen and the library.
 
 ## View Online
-
-- (use GH pages link here)
+- [Live Demo Link] (Replace with your GH pages link)
+- [GitHub Repository] (Replace with your repo link)
 
 ### Functionality
-
-1. The Kitchen (Task View) - Create and manage social media "tasks."
-2. CRUD Operations - Users can Create new drafts, Read through their library, Update existing text, and Delete unwanted posts.
-3. Progress Tracking - Mark posts as "Posted" (Complete) to trigger a visual strike-through effect.
-4. Status Filtering - Toggle views between "All," "Posted" (Complete), and "Drafts" (Incomplete).
-5. Contact Portal - A dedicated view featuring a controlled-component contact form.
+1. **The Kitchen (Task View):** This is the main `/todos` view where I can generate new post drafts and edit them side-by-side with live stats.
+2. **CRUD Operations:** I implemented full data management. Users can Create new drafts, Read their library cards, Update text in the editor, and Delete unwanted posts.
+3. **Mark as Finished:** I added a toggle for each post so it can be marked as "Finished." This triggers a visual strike-through effect on the card to show it's ready to be posted.
+4. **Status Filtering:** I included filter buttons so I can toggle the view between "All" posts, "Finished" posts (Complete), and "Drafts" (Incomplete).
+5. **Contact Portal:** A dedicated `/contact` view that uses a controlled-component form to collect user feedback.
 
 ### User Stories
-
-1.  **As a small business owner**, 
-I want to input a topic and category,
-So that the app can generate a professional draft for me.
-
-Acceptance Criteria:
-- Form contains a text input for the topic and a dropdown for the category.
-- Clicking the "Generate" button triggers the display of a pre-written draft.
-- The app remains stable and handles empty inputs gracefully.
-
-2.  **As a content creator**, 
-I want to edit my drafts and see live word counts,
-So that I ensure they meet platform standards.
-
-Acceptance Criteria:
-- A textarea allows for manual editing of the generated content.
-- A live word count updates on-screen as the user types.
-- Edited changes are preserved in the application's state.
-
-3.  **As a manager**, 
-I want to filter my posts by "Posted" or "Draft" status,
-So that I can see what work is remaining.
-
-Acceptance Criteria:
-- Each item in the library has a button to toggle its status to "Posted."
-- Completed items receive a visual strike-through or distinct style change.
-- Filter buttons (All, Drafts, Posted) correctly sort the displayed list.
-
-4.  **As a potential client**, 
-I want to fill out a contact form,
-So that I can ask questions about the service.
-
-Acceptance Criteria:
-- A dedicated view displays a form with First Name, Last Name, Email, and Comments.
-- The form utilizes controlled components (state-linked inputs).
-- Submitting the form provides user feedback (like an alert) and resets the fields.
+1. **As a small business owner**, I want to pick a topic and category so that the app can generate a professional starting draft for me.
+   - **Acceptance Criteria:** - Form contains a text input for the topic and a dropdown for the category.
+     - Clicking "Generate" triggers the display of a pre-written draft.
+2. **As a content creator**, I want to edit my drafts and see live word counts so I can make sure they fit platform limits before I post them.
+   - **Acceptance Criteria:**
+     - A textarea allows for manual editing of content.
+     - A live word count updates on-screen as the user types.
+3. **As a manager**, I want to mark tasks as "Finished" and filter my list so I can see exactly what work is still left in the draft stage.
+   - **Acceptance Criteria:**
+     - Each item has a button to toggle status to "Finished."
+     - Completed items receive a visual strike-through effect.
+     - Filter buttons (All, Drafts, Finished) correctly sort the list.
+4. **As a user**, I want to use a contact form to send messages so I can get help or ask questions about the app.
+   - **Acceptance Criteria:**
+     - Dedicated view displays fields for First Name, Last Name, Email, and Comments.
+     - Form uses controlled components and resets after submission.
 
 ### Wireframe Diagrams
-
-**State 1: The Menu (Input Phase)** `Assets/wireframe-state-1.png`
-**State 2: The Kitchen (Editor Phase)** `Assets/wireframe-state-2.png`
-**State 3: The Pantry (Library Phase)** `Assets/wireframe-state-3.png`
-**State 4: Contact View** (Displays form fields for First Name, Last Name, Email, and Comments).
+- **State 1: The Menu (Input Phase)** - `Assets/wireframe-state-1.png`
+- **State 2: The Kitchen (Editor Phase)** - `Assets/wireframe-state-2.png`
+- **State 3: The Pantry (Library Phase)** - `Assets/wireframe-state-3.png`
+- **State 4: Contact View** - Showing fields for First Name, Last Name, Email, and Comments.
 
 ### State Tree
-
-``` javascript
+```javascript
 App State
-├── currentView (string: 'todos' | 'contact')
+├── currentView (string: 'kitchen' | 'contact')
 ├── posts (array of objects)
 │   ├── id (number)
 │   ├── topic (string)
+│   ├── category (string)
 │   ├── content (string)
-│   └── isCompleted (boolean)
-└── contactForm (object)
-    ├── firstName (string)
-    ├── lastName (string)
-    ├── email (string)
-    └── comments (string)
-```    
-   
-### Component List
+│   └── isCompleted (boolean: handles the strike-through logic)
+└── activePost (object: the post currently being edited)
+```
 
-1. Container Components: App, KitchenContainer, ContactContainer, LibraryManager.
-2. Presentational Components: NavBar, DraftForm, DraftEditor, ContentCard, ContactForm, FilterButtons, StatLabel.
+### Component List
+- **Container Components:** App, KitchenContainer, ContactContainer, LibraryManager.
+- **Presentational Components:** NavBar, DraftForm, DraftEditor, ContentCard, ContactForm, FilterButtons, StatLabel.
 
 ### Technologies Used
-
- - React (v19.2): Core library for UI and state management.
- - Vite: Build tool and local development server.
- - JavaScript (ES6+): Functional logic, array methods, and state hooks.
- - HTML5 & CSS3: Structural markup and custom styling (minimum 10 custom rules).
- - Git & GitHub: Version control and repository management.
+- **React (v19):** For building the UI and managing state with hooks.
+- **Vite:** For the development environment and bundling.
+- **JavaScript (ES6+):** For logic, array filtering, and handling form events.
+- **HTML5 & CSS3:** For the structure and custom styling (includes over 10 custom rules for the layout and "Finished" status effects).
+- **Git & GitHub:** For version control and hosting.
 
 ### Installation Instructions
-
 1. **Clone the repository:** `git clone https://github.com/lsamuel-dev/ContentChef.git`
 2. **Install dependencies:** `npm install`
 3. **Run the development server:** `npm run dev`
-4. **View in Browser:** Open `http://localhost:5173` 
+4. **View in Browser:** Open `http://localhost:5173`
 
 ### Ideas for Future Improvement
-
-1. OpenAI/Gemini API Integration: Automate the "Chef" to generate real AI text based on user topics.
-2. Image Integration: Automatically fetch relevant social media images using the Pexels or Unsplash API.
-3. Export to Social: Add a feature to download formatted posts for Instagram, LinkedIn, or X.
+1. **LocalStorage:** I want to save the posts to the browser so they don't disappear when the page refreshes.
+2. **AI Integration:** Connecting to an API like Gemini to generate actual custom text for the drafts.
+3. **Image Suggestions:** Adding a feature that suggests relevant stock images based on the post category.
+```
