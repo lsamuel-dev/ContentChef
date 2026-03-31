@@ -1,14 +1,20 @@
 import './NavBar.css';
 
-function NavBar() {
+function NavBar({ onNavigate }) {
   return (
     <nav className="navbar">
       <div className="nav-logo">
         <h1>ContentChef 👨‍🍳</h1>
       </div>
       <ul className="nav-links">
-        <li><button className="nav-btn">The Kitchen</button></li>
-        <li><button className="nav-btn">Contact</button></li>
+        {/* Navigation to 'The Kitchen' (Required /todos view) */}
+        <li>
+          <button onClick={() => onNavigate('kitchen')}>The Kitchen</button>
+        </li>
+        {/* Navigation to 'Contact' (Required /contact view) */}
+        <li>
+          <button onClick={() => onNavigate('contact')}>Contact</button>
+        </li>
       </ul>
     </nav>
   );
