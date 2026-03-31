@@ -34,25 +34,40 @@ function App() {
     setPosts(updatedPosts);
   };
 
+  // --- NEW DELETE LOGIC ---
+  const deletePost = (postId) => {
+    const remainingPosts = posts.filter(post => post.id !== postId);
+    setPosts(remainingPosts);
+
+    // If the post we are deleting is currently in the editor, clear it
+    if (activePost && activePost.id === postId) {
+      setActivePost(null);
+    }
+  };
+
   return (
     <div className="app-container">
       <NavBar onNavigate={handleNavigate} />
 
       <main className="main-content">
         {currentView === 'kitchen' ? (
-  <>
-    <KitchenContainer 
-      onAddPost={addPost} 
-      activePost={activePost}
-      onUpdatePost={updateActivePost}
-      posts={posts}
-    />
-    {/* This is the key addition for this commit */}
-    <PostLibrary posts={posts} />
-  </>
-) : (
-  <ContactContainer />
-)}
+          <>
+            <KitchenContainer 
+              onAddPost={addPost} 
+              activePost={activePost}
+              onUpdatePost={updateActivePost}
+              posts={posts}
+            />
+            {/* We pass the onViewPost and onDeletePost functions here */}
+            <PostLibrary 
+              posts={posts} 
+              onViewPost={setActivePost} 
+              onDeletePost={deletePost} 
+            />
+          </>
+        ) : (
+          <ContactContainer />
+        )}
       </main>
     </div>
   );

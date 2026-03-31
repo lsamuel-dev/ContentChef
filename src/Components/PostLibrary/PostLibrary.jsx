@@ -1,30 +1,42 @@
 import './PostLibrary.css';
 
-function PostLibrary({ posts }) {
+function PostLibrary({ posts, onViewPost, onDeletePost }) {
   return (
     <div className="pantry-container">
-      <hr className="section-divider" />
-      <header className="pantry-header">
-        <h2>The Pantry</h2>
-        <p>Your collection of prepared content drafts.</p>
-      </header>
+      <h2 className="pantry-title">The Pantry</h2>
+      <p className="pantry-subtitle">Your collection of prepared content drafts.</p>
       
       <div className="pantry-grid">
-        {posts.length === 0 ? (
-          <div className="empty-pantry">
-            <p>The pantry is bare! Start cooking in the Kitchen to see your drafts here.</p>
-          </div>
-        ) : (
-          posts.map((post) => (
-            <div key={post.id} className="post-card">
-              <div className="card-tag">{post.category}</div>
-              <h3>{post.topic}</h3>
-              <p>{post.content.substring(0, 100)}...</p>
-              <button className="card-btn">View Full Draft</button>
+        {posts.map((post) => (
+          <div key={post.id} className="post-card">
+            <div className="card-tag">{post.category}</div>
+            <h3 className="card-topic">{post.topic}</h3>
+            <p className="card-preview">
+              {post.content ? post.content.substring(0, 80) : "No content yet..."}...
+            </p>
+            
+            <div className="card-footer">
+              <button 
+                className="view-btn" 
+                onClick={() => onViewPost(post)}
+              >
+                View Full Draft
+              </button>
+              
+              <button 
+                className="delete-btn" 
+                onClick={() => onDeletePost(post.id)}
+              >
+                Delete
+              </button>
             </div>
-          ))
-        )}
+          </div>
+        ))}
       </div>
+
+      {posts.length === 0 && (
+        <p className="empty-message">Your pantry is empty. Start cooking in the kitchen!</p>
+      )}
     </div>
   );
 }
