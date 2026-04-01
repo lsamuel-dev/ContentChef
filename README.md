@@ -7,9 +7,8 @@
 - ContentChef is a React-based task management application I built for business owners who need to streamline their social media production. Instead of a standard to-do list, this app lets users "cook" (create) social media posts, track their quality in real-time, and manage them through a full CRUD (Create, Read, Update, Delete) cycle. I focused on using React state to handle navigation and data flow between the kitchen and the library.
 
 ## View Online
-- [Live Demo Link] (Replace with your GH pages link)
-- [GitHub Repository] (Replace with your repo link)
-
+- [Live Demo Link] https://lsamuel-dev.github.io/ContentChef
+- [GitHub Repository] https://github.com/lsamuel-dev/ContentChef
 ### Functionality
 1. **The Kitchen (Task View):** This is the main `/todos` view where I can generate new post drafts and edit them side-by-side with live stats.
 2. **CRUD Operations:** I implemented full data management. Users can Create new drafts, Read their library cards, Update text in the editor, and Delete unwanted posts.
