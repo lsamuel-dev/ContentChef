@@ -39,7 +39,7 @@
 - **State 1: The Menu (Input Phase)** - `Assets/wireframe-state-1.png`
 - **State 2: The Kitchen (Editor Phase)** - `Assets/wireframe-state-2.png`
 - **State 3: The Pantry (Library Phase)** - `Assets/wireframe-state-3.png`
-- **State 4: Contact View** - Showing fields for First Name, Last Name, Email, and Comments.
+- **State 4: Contact View (Form Phase)** - `Assets/wireframe-state-4.png`
 
 ### State Tree
 ```javascript
