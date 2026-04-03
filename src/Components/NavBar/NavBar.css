@@ -1,0 +1,27 @@
+.navbar {
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 30px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex; /* Makes it horizontal */
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links li:hover {
+  color: #ff6b6b;
+}

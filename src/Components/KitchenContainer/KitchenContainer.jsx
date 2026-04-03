@@ -1,31 +1,47 @@
-import './KitchenContainer.css'; // This is correct because they ARE in the same folder
+import React from 'react';
+import ContentCard from '../ContentCard/ContentCard';
 import DraftForm from '../DraftForm/DraftForm';
-import DraftEditor from '../DraftEditor/DraftEditor';
-import StatLabel from '../StatLabel/StatLabel';
 
-function KitchenContainer({ onAddPost, activePost, onUpdatePost }) {
+function KitchenContainer({ 
+  posts, addPost, updatePost, activePost, setActivePost, 
+  filter, setFilter, toggleComplete, deletePost 
+}) {
   return (
-    <div className="kitchen-container">
-      <header className="kitchen-header">
-        <h2>The Kitchen</h2>
-        <p>Prepare and season your social media drafts below.</p>
-      </header>
-      
-      <section className="kitchen-workspace">
-        <div className="recipe-input-area">
-            <DraftForm onAddPost={onAddPost} /> 
+    <section className="kitchen-container">
+      <div className="editor-section">
+        <DraftForm 
+          addPost={addPost} 
+          updatePost={updatePost} 
+          activePost={activePost} 
+          setActivePost={setActivePost}
+        />
+      </div>
+
+      <div className="kitchen-header">
+        <h2>The Pantry</h2>
+        <div className="filter-bar">
+          <button className={filter === 'All' ? 'active' : ''} onClick={() => setFilter('All')}>All</button>
+          <button className={filter === 'Drafts' ? 'active' : ''} onClick={() => setFilter('Drafts')}>Drafts</button>
+          <button className={filter === 'Finished' ? 'active' : ''} onClick={() => setFilter('Finished')}>Finished</button>
         </div>
-        
-        <div className="cooking-station">
-            <DraftEditor 
-              activePost={activePost} 
-              setActivePost={onUpdatePost} 
+      </div>
+
+      <div className="pantry-grid">
+        {posts.length > 0 ? (
+          posts.map((post) => (
+            <ContentCard 
+              key={post.id} 
+              post={post} 
+              onToggle={() => toggleComplete(post.id)} 
+              onDelete={() => deletePost(post.id)}
+              onEdit={() => setActivePost(post)} 
             />
-            {/* The Label sits right under the editor */}
-            <StatLabel activePost={activePost} />
-        </div>
-      </section>
-    </div>
+          ))
+        ) : (
+          <p className="empty-message">No recipes in this section. Start cooking!</p>
+        )}
+      </div>
+    </section>
   );
 }
 

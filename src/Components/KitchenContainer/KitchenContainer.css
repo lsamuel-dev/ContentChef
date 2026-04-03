@@ -1,0 +1,35 @@
+.kitchen-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.editor-section {
+  display: flex;
+  justify-content: center; /* Centers the form */
+  margin-bottom: 40px;
+}
+
+.pantry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
+  gap: 20px;
+}
+
+.kitchen-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-bar button.active {
+  background: #ff6b6b;
+  color: white;
+  border-radius: 5px;
+}

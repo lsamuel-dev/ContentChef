@@ -1,21 +1,26 @@
+import React from 'react';
 import './NavBar.css';
 
-function NavBar({ onNavigate }) {
+function NavBar({ setView, activeView }) {
   return (
     <nav className="navbar">
-      <div className="nav-logo">
-        <h1>ContentChef 👨‍🍳</h1>
+      <div className="nav-container">
+        <h1 className="logo">ContentChef 👨‍🍳</h1>
+        <ul className="nav-links">
+          <li 
+            className={activeView === 'kitchen' ? 'active' : ''} 
+            onClick={() => setView('kitchen')}
+          >
+            The Kitchen
+          </li>
+          <li 
+            className={activeView === 'contact' ? 'active' : ''} 
+            onClick={() => setView('contact')}
+          >
+            Contact
+          </li>
+        </ul>
       </div>
-      <ul className="nav-links">
-        {/* Navigation to 'The Kitchen' (Required /todos view) */}
-        <li>
-          <button onClick={() => onNavigate('kitchen')}>The Kitchen</button>
-        </li>
-        {/* Navigation to 'Contact' (Required /contact view) */}
-        <li>
-          <button onClick={() => onNavigate('contact')}>Contact</button>
-        </li>
-      </ul>
     </nav>
   );
 }
