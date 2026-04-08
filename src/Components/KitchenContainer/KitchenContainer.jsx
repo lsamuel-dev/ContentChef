@@ -1,6 +1,7 @@
 import React from "react";
 import ContentCard from "../ContentCard/ContentCard";
 import DraftForm from "../DraftForm/DraftForm";
+import ContactForm from "../ContactForm/ContactForm";
 
 function KitchenContainer({
   posts,
@@ -10,24 +11,11 @@ function KitchenContainer({
   setActivePost,
   filter,
   setFilter,
-  toggleComplete,
   deletePost,
 }) {
-  // Inline style object for the filter buttons to ensure consistency
-  const filterButtonStyle = (isActive) => ({
-    backgroundColor: isActive ? "#f3f4f6" : "#ffffff",
-    color: "#000000",
-    border: "2px solid #000000",
-    padding: "8px 16px",
-    marginRight: "10px",
-    borderRadius: "4px",
-    fontWeight: "bold",
-    cursor: "pointer",
-  });
-
   return (
-    <section className="kitchen-container">
-      <div className="editor-section">
+    <section style={{ padding: "15px" }}>
+      <div id="kitchen">
         <DraftForm
           addPost={addPost}
           updatePost={updatePost}
@@ -36,47 +24,43 @@ function KitchenContainer({
         />
       </div>
 
-      <div className="kitchen-header">
-        <h2>The Pantry</h2>
-        <div className="filter-bar">
-          <button
-            style={filterButtonStyle(filter === "All")}
-            onClick={() => setFilter("All")}
-          >
-            All
-          </button>
-          <button
-            style={filterButtonStyle(filter === "Drafts")}
-            onClick={() => setFilter("Drafts")}
-          >
-            Drafts
-          </button>
-          <button
-            style={filterButtonStyle(filter === "Finished")}
-            onClick={() => setFilter("Finished")}
-          >
-            Finished
-          </button>
-        </div>
-      </div>
+      <div id="pantry" style={{ marginTop: "40px" }}>
+        <h2 style={{ color: "#000", borderBottom: "2px solid #000" }}>
+          THE PANTRY
+        </h2>
 
-      <div className="pantry-grid">
-        {posts.length > 0 ? (
-          posts.map((post) => (
+        <div style={{ display: "flex", gap: "8px", margin: "20px 0" }}>
+          {["All", "Drafts", "Finished"].map((f) => (
+            <button
+              key={f}
+              style={{
+                flex: 1,
+                padding: "10px",
+                border: "2px solid #000",
+                fontWeight: "bold",
+                background: filter === f ? "#eee" : "#fff",
+              }}
+              onClick={() => setFilter(f)}
+            >
+              {f}
+            </button>
+          ))}
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+          {posts.map((post) => (
             <ContentCard
               key={post.id}
               post={post}
-              onToggle={() => toggleComplete(post.id)}
               onDelete={() => deletePost(post.id)}
               onEdit={() => setActivePost(post)}
             />
-          ))
-        ) : (
-          <p className="empty-message">
-            No recipes in this section. Start cooking!
-          </p>
-        )}
+          ))}
+        </div>
       </div>
+
+      {/* This renders your original contact form directly */}
+      <ContactForm />
     </section>
   );
 }

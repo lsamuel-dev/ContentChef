@@ -1,48 +1,71 @@
 import React, { useState, useEffect } from "react";
-import "./DraftForm.css";
 
 function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
   const [topic, setTopic] = useState("");
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
 
+  // Styles forced into JS to prevent iPhone layout breaks
+  const styles = {
+    container: {
+      display: "flex",
+      flexDirection: "column",
+      gap: "12px",
+      padding: "15px",
+      backgroundColor: "#ffffff",
+      border: "2px solid #000",
+      width: "100%",
+      boxSizing: "border-box",
+    },
+    input: {
+      padding: "12px",
+      border: "2px solid #000",
+      fontSize: "16px",
+      width: "100%",
+    },
+    btn: {
+      backgroundColor: "#dc2626",
+      color: "#fff",
+      padding: "16px",
+      fontWeight: "bold",
+      border: "none",
+      width: "100%",
+    },
+  };
+
+  // Automatically creates a post based on topic and dropdown choice
+  const handleAutoGenerate = (e) => {
+    const type = e.target.value;
+    setCategory(type);
+
+    if (topic && !activePost) {
+      const templates = {
+        Sales: `Check out our ${topic}! Available now for a limited time.`,
+        Educational: `Here are 3 tips for ${topic} you should try today.`,
+        Announcement: `We are excited to announce our new ${topic} is live!`,
+      };
+      setContent(templates[type] || "");
+    }
+  };
+
   useEffect(() => {
     if (activePost) {
       setTopic(activePost.topic);
       setCategory(activePost.category);
       setContent(activePost.content);
-    } else {
-      setTopic("");
-      setCategory("");
-      setContent("");
     }
   }, [activePost]);
 
-  const handleCategoryChange = (e) => {
-    const newCat = e.target.value;
-    setCategory(newCat);
-
-    if (!activePost && topic) {
-      const templates = {
-        Sales: `🔥 LIMITED TIME: ${topic}! 🔥\n\nDon't miss out on our biggest event yet!`,
-        Educational: `Did you know about ${topic}?\n\nUnderstanding this can change how you work.`,
-        Announcement: `BIG NEWS: We are officially launching ${topic}!`,
-      };
-      setContent(templates[newCat] || "");
-    }
-  };
-
   const handleSubmit = (e) => {
-    if (e) e.preventDefault();
-    if (!topic || !category || !content) {
-      alert("Please fill in all ingredients (fields)!");
-      return;
-    }
+    e.preventDefault();
+    if (!topic || !category || !content) return;
 
     if (activePost) {
       updatePost(activePost.id, topic, category, content);
+      setActivePost(null);
     } else {
-      addPost({ topic, category, content });
+      // Sends new post object up to global state
+      addPost({ topic, category, content, completed: false, id: Date.now() });
     }
 
     setTopic("");
@@ -51,72 +74,34 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
   };
 
   return (
-    <div className="draft-form">
-      <h3>{activePost ? "Refining the Recipe" : "Start a New Recipe"}</h3>
-
+    <form style={styles.container} onSubmit={handleSubmit}>
+      <h3 style={{ margin: "0", color: "#000" }}>Post Generator</h3>
       <input
-        type="text"
-        placeholder="Topic (e.g. Summer Sale)"
+        style={styles.input}
+        placeholder="Topic"
         value={topic}
         onChange={(e) => setTopic(e.target.value)}
       />
-
-      <select value={category} onChange={handleCategoryChange}>
-        <option value="">Select Category</option>
+      <select
+        style={styles.input}
+        value={category}
+        onChange={handleAutoGenerate}
+      >
+        <option value="">Select Platform</option>
         <option value="Sales">Sales</option>
         <option value="Educational">Educational</option>
         <option value="Announcement">Announcement</option>
       </select>
-
       <textarea
-        placeholder="Edit your message content here..."
+        style={{ ...styles.input, height: "100px" }}
+        placeholder="Content"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        rows="5"
       />
-
-      <div className="form-buttons">
-        <button
-          className="generate-btn"
-          style={{
-            opacity: 1,
-            visibility: "visible",
-            display: "block",
-            backgroundColor: "#dc2626", // Bold Red
-            color: "#ffffff", // White Text
-            padding: "12px 24px",
-            fontWeight: "bold",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-            marginTop: "10px",
-            textTransform: "uppercase",
-          }}
-          onClick={handleSubmit}
-        >
-          {activePost ? "Save Changes" : "Generate Draft"}
-        </button>
-        {activePost && (
-          <button
-            className="cancel-btn"
-            style={{
-              marginLeft: "10px",
-              cursor: "pointer",
-              background: "#ffffff",
-              color: "#000000",
-              border: "2px solid #000000",
-              padding: "8px 16px",
-              borderRadius: "4px",
-              marginTop: "10px",
-              fontWeight: "bold",
-            }}
-            onClick={() => setActivePost(null)}
-          >
-            Cancel
-          </button>
-        )}
-      </div>
-    </div>
+      <button type="submit" style={styles.btn}>
+        {activePost ? "Update" : "Generate & Save"}
+      </button>
+    </form>
   );
 }
 
