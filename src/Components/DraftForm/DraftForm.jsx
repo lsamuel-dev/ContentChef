@@ -6,7 +6,6 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
   const [category, setCategory] = useState("");
   const [content, setContent] = useState("");
 
-  // Monitors the "Active Post" state. If you click edit, this fills the boxes.
   useEffect(() => {
     if (activePost) {
       setTopic(activePost.topic);
@@ -23,7 +22,6 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
     const newCat = e.target.value;
     setCategory(newCat);
 
-    // Only auto-generate if we aren't currently editing an existing post
     if (!activePost && topic) {
       const templates = {
         Sales: `🔥 LIMITED TIME: ${topic}! 🔥\n\nDon't miss out on our biggest event yet!`,
@@ -84,14 +82,16 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
             opacity: 1,
             visibility: "visible",
             display: "block",
-            backgroundColor: "#dc2626", // Red background
-            color: "#ffffff", // White text
+            backgroundColor: "#dc2626", // High-Visibility Red
+            color: "#ffffff", // Pure White Text
             padding: "12px 24px",
             fontWeight: "bold",
             border: "none",
             borderRadius: "4px",
             cursor: "pointer",
             marginTop: "10px",
+            textTransform: "uppercase",
+            letterSpacing: "0.5px",
           }}
           onClick={handleSubmit}
         >
@@ -100,7 +100,15 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
         {activePost && (
           <button
             className="cancel-btn"
-            style={{ marginLeft: "10px", cursor: "pointer" }}
+            style={{
+              marginLeft: "10px",
+              cursor: "pointer",
+              background: "none",
+              border: "1px solid #ccc",
+              padding: "8px 16px",
+              borderRadius: "4px",
+              marginTop: "10px",
+            }}
             onClick={() => setActivePost(null)}
           >
             Cancel
