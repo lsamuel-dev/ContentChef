@@ -82,8 +82,8 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
             opacity: 1,
             visibility: "visible",
             display: "block",
-            backgroundColor: "#dc2626", // High-Visibility Red
-            color: "#ffffff", // Pure White Text
+            backgroundColor: "#dc2626", // Bold Red
+            color: "#ffffff", // White Text
             padding: "12px 24px",
             fontWeight: "bold",
             border: "none",
@@ -91,7 +91,6 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
             cursor: "pointer",
             marginTop: "10px",
             textTransform: "uppercase",
-            letterSpacing: "0.5px",
           }}
           onClick={handleSubmit}
         >
@@ -103,11 +102,13 @@ function DraftForm({ addPost, updatePost, activePost, setActivePost }) {
             style={{
               marginLeft: "10px",
               cursor: "pointer",
-              background: "none",
-              border: "1px solid #ccc",
+              background: "#ffffff",
+              color: "#000000",
+              border: "2px solid #000000",
               padding: "8px 16px",
               borderRadius: "4px",
               marginTop: "10px",
+              fontWeight: "bold",
             }}
             onClick={() => setActivePost(null)}
           >
