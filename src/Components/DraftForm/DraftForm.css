@@ -1,70 +1,42 @@
+/* NUCLEAR RESET FOR VISIBILITY */
 .draft-form {
-  background: var(--chef-white);
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
-  border-left: 5px solid var(--chef-red);
-  margin-bottom: 2rem;
-}
-
-.draft-form h3 {
-  color: var(--chef-red);
-  margin-bottom: 1rem;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .draft-form input,
-.draft-form select {
-  display: block;
+.draft-form select,
+.draft-form textarea {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 1rem;
 }
 
-/* FORCE VISIBILITY - DO NOT REMOVE */
+/* THE BUTTON - FORCED VISIBILITY */
 .generate-btn {
+  /* This kills the "hover-only" behavior */
+  display: block !important;
   opacity: 1 !important;
   visibility: visible !important;
-  display: inline-block !important;
 
-  /* High-Contrast Styling */
-  background-color: #1a1a1a !important; /* Solid dark grey/black */
-  color: #ffffff !important; /* Solid white text */
-  padding: 12px 24px !important;
-  border-radius: 4px !important;
-  font-weight: 700 !important;
+  /* High Contrast Style */
+  background-color: #000000 !important; /* Pure Black */
+  color: #ffffff !important; /* Pure White */
+  padding: 15px !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
-  cursor: pointer !important;
   border: none !important;
+  cursor: pointer !important;
   margin-top: 10px !important;
 }
 
-/* Hover effect should only change the color, not the visibility */
+/* This only changes color, not visibility */
 .generate-btn:hover {
-  background-color: #333333 !important;
-}
-
-/* FORCE VISIBILITY - DO NOT REMOVE */
-.generate-btn {
-  opacity: 1 !important;
-  visibility: visible !important;
-  display: inline-block !important;
-
-  /* High-Contrast Styling */
-  background-color: #1a1a1a !important; /* Solid dark grey/black */
-  color: #ffffff !important; /* Solid white text */
-  padding: 12px 24px !important;
-  border-radius: 4px !important;
-  font-weight: 700 !important;
-  text-transform: uppercase !important;
-  cursor: pointer !important;
-  border: none !important;
-  margin-top: 10px !important;
-}
-
-/* Hover effect should only change the color, not the visibility */
-.generate-btn:hover {
-  background-color: #333333 !important;
+  background-color: #444444 !important;
 }
