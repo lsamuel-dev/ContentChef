@@ -23,24 +23,48 @@
   font-size: 1rem;
 }
 
-/* This goes in DraftForm.css to override local component styles */
+/* FORCE VISIBILITY - DO NOT REMOVE */
 .generate-btn {
-  background-color: #1a1a1a !important; /* Solid dark grey */
-  color: #ffffff !important; /* Pure white text */
-  opacity: 1 !important; /* Force visibility */
-  visibility: visible !important; /* Ensure it is not hidden */
+  opacity: 1 !important;
+  visibility: visible !important;
   display: inline-block !important;
 
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-weight: 700;
-  text-transform: uppercase;
-  cursor: pointer;
-  border: none;
-  margin-top: 10px;
+  /* High-Contrast Styling */
+  background-color: #1a1a1a !important; /* Solid dark grey/black */
+  color: #ffffff !important; /* Solid white text */
+  padding: 12px 24px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin-top: 10px !important;
 }
 
-/* Hover effect remains, but button starts visible */
+/* Hover effect should only change the color, not the visibility */
+.generate-btn:hover {
+  background-color: #333333 !important;
+}
+
+/* FORCE VISIBILITY - DO NOT REMOVE */
+.generate-btn {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+
+  /* High-Contrast Styling */
+  background-color: #1a1a1a !important; /* Solid dark grey/black */
+  color: #ffffff !important; /* Solid white text */
+  padding: 12px 24px !important;
+  border-radius: 4px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  border: none !important;
+  margin-top: 10px !important;
+}
+
+/* Hover effect should only change the color, not the visibility */
 .generate-btn:hover {
   background-color: #333333 !important;
 }
