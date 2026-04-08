@@ -12,7 +12,7 @@
   margin-bottom: 1rem;
 }
 
-.draft-form input, 
+.draft-form input,
 .draft-form select {
   display: block;
   width: 100%;
@@ -23,13 +23,24 @@
   font-size: 1rem;
 }
 
+/* This goes in DraftForm.css to override local component styles */
 .generate-btn {
-  background-color: var(--chef-red);
-  color: white;
-  width: 100%;
-  font-size: 1.1rem;
+  background-color: #1a1a1a !important; /* Solid dark grey */
+  color: #ffffff !important; /* Pure white text */
+  opacity: 1 !important; /* Force visibility */
+  visibility: visible !important; /* Ensure it is not hidden */
+  display: inline-block !important;
+
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
 }
 
+/* Hover effect remains, but button starts visible */
 .generate-btn:hover {
-  background-color: #c9302c;
+  background-color: #333333 !important;
 }
