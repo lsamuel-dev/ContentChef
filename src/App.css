@@ -6,7 +6,7 @@
 
 body {
   background-color: #f9f9f9;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .app-container {
@@ -28,4 +28,9 @@ body {
   color: #888;
   border-top: 1px solid #eee;
   margin-top: 50px;
+}
+
+.generate-btn {
+  opacity: 1; /* Always visible */
+  display: block; /* Ensures it takes up its intended space */
 }
