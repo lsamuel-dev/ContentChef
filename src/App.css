@@ -1,11 +1,10 @@
-/* GLOBAL RESET */
 html,
-body {
+body,
+#root {
   margin: 0;
   padding: 0;
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
   background-color: #ffffff;
 }
 
@@ -13,47 +12,32 @@ body {
   box-sizing: border-box;
 }
 
+/* Forces the app to 100% width of the browser */
 .App {
   width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-/* MAIN CONTENT AREA */
+/* Centers the content but allows it to expand to 1200px on desktop */
 main {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers the content */
 }
 
-/* DESKTOP RENDERING (Computer) */
-@media (min-width: 1024px) {
-  #kitchen,
-  #pantry,
-  #contact {
-    width: 80%; /* Takes up most of the screen width */
-    max-width: 1200px; /* But doesn't stretch forever */
-    margin: 20px auto;
-  }
-
-  /* Optional: Puts the Generator and Pantry side-by-side on big screens */
-  .desktop-row {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    width: 100%;
-    justify-content: center;
-  }
+/* The Pantry Grid: Cards sit side-by-side on desktop, stack on mobile */
+.pantry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 
-/* MOBILE RENDERING (iPhone) */
-@media (max-width: 1023px) {
-  #kitchen,
-  #pantry,
-  #contact {
-    width: 100%;
+@media (max-width: 768px) {
+  main {
+    padding: 10px;
   }
 }

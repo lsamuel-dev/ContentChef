@@ -14,31 +14,40 @@ function KitchenContainer({
   deletePost,
 }) {
   return (
-    <section style={{ padding: "15px" }}>
-      <div id="kitchen">
+    <main>
+      {/* 1. Generator Section */}
+      <section id="kitchen" style={{ width: "100%" }}>
         <DraftForm
           addPost={addPost}
           updatePost={updatePost}
           activePost={activePost}
           setActivePost={setActivePost}
         />
-      </div>
+      </section>
 
-      <div id="pantry" style={{ marginTop: "40px" }}>
-        <h2 style={{ color: "#000", borderBottom: "2px solid #000" }}>
+      {/* 2. Pantry Section */}
+      <section id="pantry" style={{ marginTop: "50px", width: "100%" }}>
+        <h2
+          style={{
+            color: "#000",
+            borderBottom: "2px solid #000",
+            paddingBottom: "10px",
+          }}
+        >
           THE PANTRY
         </h2>
 
-        <div style={{ display: "flex", gap: "8px", margin: "20px 0" }}>
+        <div style={{ display: "flex", gap: "10px", margin: "20px 0" }}>
           {["All", "Drafts", "Finished"].map((f) => (
             <button
               key={f}
               style={{
                 flex: 1,
-                padding: "10px",
+                padding: "12px",
                 border: "2px solid #000",
                 fontWeight: "bold",
                 background: filter === f ? "#eee" : "#fff",
+                cursor: "pointer",
               }}
               onClick={() => setFilter(f)}
             >
@@ -47,7 +56,7 @@ function KitchenContainer({
           ))}
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
+        <div className="pantry-grid">
           {posts.map((post) => (
             <ContentCard
               key={post.id}
@@ -57,11 +66,11 @@ function KitchenContainer({
             />
           ))}
         </div>
-      </div>
+      </section>
 
-      {/* This renders your original contact form directly */}
+      {/* 3. Original Contact Form */}
       <ContactForm />
-    </section>
+    </main>
   );
 }
 
