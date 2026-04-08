@@ -41,3 +41,16 @@ main {
     padding: 10px;
   }
 }
+
+/* SCROLL OFFSET FIX:
+   This ensures that when you click 'The Pantry' or 'Contact Us', 
+    the section title stops below the Navbar instead of being covered by it.
+*/
+#kitchen, #pantry, #contact {
+  scroll-margin-top: 80px; /* Adjust this number to match your Navbar height */
+}
+
+/* Ensure sections have enough breathing room */
+section {
+  padding-bottom: 40px;
+}
