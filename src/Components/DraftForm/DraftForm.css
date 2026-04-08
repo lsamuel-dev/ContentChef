@@ -35,8 +35,3 @@
   cursor: pointer !important;
   margin-top: 10px !important;
 }
-
-/* This only changes color, not visibility */
-.generate-btn:hover {
-  background-color: #444444 !important;
-}

@@ -58,11 +58,6 @@ body {
     transform 0.1s;
 }
 
-.generate-btn:hover {
-  background-color: #333333; /* Slightly lighter on hover */
-  transform: translateY(-1px);
-}
-
 .generate-btn:active {
   transform: translateY(0);
 }
