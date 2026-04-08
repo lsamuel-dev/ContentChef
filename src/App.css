@@ -31,6 +31,38 @@ body {
 }
 
 .generate-btn {
-  opacity: 1; /* Always visible */
-  display: block; /* Ensures it takes up its intended space */
+  /* Visibility & Layout */
+  display: inline-block;
+  opacity: 1 !important;
+  visibility: visible !important;
+
+  /* Colors & Contrast */
+  background-color: #1a1a1a; /* Deep black/grey */
+  color: #ffffff; /* Crisp white text */
+
+  /* Sizing & Shape */
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+
+  /* Typography */
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  /* Interaction */
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    transform 0.1s;
+}
+
+.generate-btn:hover {
+  background-color: #333333; /* Slightly lighter on hover */
+  transform: translateY(-1px);
+}
+
+.generate-btn:active {
+  transform: translateY(0);
 }
